@@ -3,8 +3,8 @@
 function App() {
 
   return (
-    <div>
-      hello
+    <div className="bg-red-400">
+      Hello
     </div>
   )
 }
