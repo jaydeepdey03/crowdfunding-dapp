@@ -10,7 +10,7 @@ const Navbar = () => {
             <div>
                 <p className='text-white font-bold text-3xl'>Fundr.</p>
             </div>
-            <div className='font-epilogue md:relative hidden md:flex space-x-14 justify-center font-bold text-white items-center text-xl'>
+            <div className='font-epilogue md:relative hidden md:flex space-x-14 justify-center font-bold text-white items-center text-lg'>
                 <p className='link'>Home</p>
                 <p className='link'>About</p>
                 <p className='link'>Contact Us</p>
