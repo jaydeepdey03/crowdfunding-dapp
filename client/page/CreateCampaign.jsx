@@ -7,12 +7,14 @@ import FormField from "../Components/FormField";
 import CustomButton from "../Components/CustomButton";
 import Loader from "../Components/Loader";
 import Link from "next/link";
+import useGlobalState from "../Hooks/useGlobalState";
+import { checkIfImage } from "../utils";
 
 
 const CreateCampaign = () => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
-    // const { createCampaign } = useStateContext();
+    const { createCampaign } = useGlobalState();
     const [form, setForm] = useState({
         name: '',
         title: '',
@@ -29,22 +31,22 @@ const CreateCampaign = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //     checkIfImage(form.image, async (exists) => {
-        //         if (exists) {
-        //             setIsLoading(true)
-        //             await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18) })
-        //             setIsLoading(false);
-        //             router.push('/');
-        //         } else {
-        //             Swal.fire({
-        //                 title: 'Error!',
-        //                 text: 'Provide valid image URL',
-        //                 icon: 'error',
-        //                 confirmButtonText: 'OK'
-        //             })
-        //             setForm({ ...form, image: '' });
-        //         }
-        //     })
+        checkIfImage(form.image, async (exists) => {
+            if (exists) {
+                setIsLoading(true)
+                await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18) })
+                setIsLoading(false);
+                router.push('/');
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Provide valid image URL',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                })
+                setForm({ ...form, image: '' });
+            }
+        })
     }
 
     return (
@@ -57,27 +59,25 @@ const CreateCampaign = () => {
                 </div>
                 {isLoading && <Loader />}
                 <div className="flex flex-col place-items-center h-full w-full p-10">
-                    <form className="bg-white shadow-md rounded p-7 flex flex-col space-y-6 justify-center">
+                    <form onSubmit={handleSubmit} className="bg-white shadow-md rounded p-7 flex flex-col space-y-6 justify-center">
                         {/* create a centered button with the text */}
                         <h1 className="text-2xl text-white inline-block m-auto text-center px-5 py-3 rounded-xl w-[40%] font-bold font-epilogue campaign-bg">
                             Create Campaign
                         </h1>
-                        <div className="flex flex-wrap gap-[40px]">
-                            <FormField
-                                labelName="Your Name *"
-                                placeholder="John Doe"
-                                inputType="text"
-                                value={form.name}
-                                handleChange={(e) => handleFormFieldChange('name', e)}
-                            />
-                            <FormField
-                                labelName="Campaign Title *"
-                                placeholder="Write a title"
-                                inputType="text"
-                                value={form.title}
-                                handleChange={(e) => handleFormFieldChange('title', e)}
-                            />
-                        </div>
+                        <FormField
+                            labelName="Campaign Title *"
+                            placeholder="Write a title"
+                            inputType="text"
+                            value={form.title}
+                            handleChange={(e) => handleFormFieldChange('title', e)}
+                        />
+                        <FormField
+                            labelName="Your Name *"
+                            placeholder="John Doe"
+                            inputType="text"
+                            value={form.name}
+                            handleChange={(e) => handleFormFieldChange('name', e)}
+                        />
                         <FormField
                             labelName="Story *"
                             placeholder="Write your story"
@@ -108,13 +108,13 @@ const CreateCampaign = () => {
                             value={form.image}
                             handleChange={(e) => handleFormFieldChange('image', e)}
                         />
-
                         <div className="flex justify-center items-center mt-[40px]">
                             <CustomButton
                                 btnType="submit"
                                 title="Submit new campaign"
                                 styles="bg-[#1dc071]"
                             />
+
                         </div>
                         <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfdbb] h-[120px] rounded-[10px] mt-5">
                             <img src={`assets/money.svg`} alt="money" className="w-[40px] h-[40px] object-contain" />

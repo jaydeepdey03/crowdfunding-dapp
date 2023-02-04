@@ -1,7 +1,14 @@
 import Head from 'next/head'
+import CustomButton from '../Components/CustomButton'
+import useGlobalState from '../Hooks/useGlobalState'
 import Main from '../page/Main'
+import { useAddress } from '@thirdweb-dev/react'
 
 export default function Home() {
+
+  const { connect } = useGlobalState()
+  const address = useAddress()
+  console.log(address)
   return (
     <>
       <Head>
@@ -11,7 +18,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='linear-gradient'>
-        <Main />
+
+        {address===undefined ? (
+          <div className="flex justify-center items-center h-screen">
+            <CustomButton
+              btnType="button"
+              title={'Connect'}
+              styles={'bg-[#8c6dfd] h-20 w-52 text-2xl'}
+              handleClick={connect}
+            />
+          </div>
+        ) : <Main />}
       </div>
     </>
   )

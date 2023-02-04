@@ -6,7 +6,7 @@ import CustomButton from './CustomButton'
 
 const Navbar = () => {
     const Router = useRouter()
-    const address = "hello"
+
     return (
         <div className='flex md:flex-row justify-between gap-6 p-6'>
             <div>
@@ -36,7 +36,7 @@ const Navbar = () => {
 
             {/* Responsive hamburger menu */}
             <div className='sm:hidden'>
-                <svg width="50" height="50" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" className='text-white'>
+                <svg width="50" height="50" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className='text-white'>
                     <path d="M21 10H7"></path>
                     <path d="M21 6H3"></path>
                     <path d="M21 14H3"></path>
