@@ -1,7 +1,7 @@
 const CampaignDetails = () => {
     return (
         <div>
-            {isLoading && <Loader />}
+            {/* {isLoading && <Loader />} */}
         </div>
     )
 }
