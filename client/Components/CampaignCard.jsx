@@ -1,4 +1,4 @@
-const Fundcard = () => {
+const CampaignCard = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const Fundcard = () => {
     )
 }
 
-export default Fundcard
+export default CampaignCard

@@ -2,13 +2,12 @@ import Head from 'next/head'
 import CustomButton from '../Components/CustomButton'
 import useGlobalState from '../Hooks/useGlobalState'
 import Main from '../page/Main'
-import { useAddress } from '@thirdweb-dev/react'
+import { ConnectWallet, useAddress, Web3Button } from '@thirdweb-dev/react'
 
 export default function Home() {
 
   const { connect } = useGlobalState()
   const address = useAddress()
-  console.log(address)
   return (
     <>
       <Head>
@@ -19,7 +18,7 @@ export default function Home() {
       </Head>
       <div className='linear-gradient'>
 
-        {address===undefined ? (
+        {address === undefined ? (
           <div className="flex justify-center items-center h-screen">
             <CustomButton
               btnType="button"

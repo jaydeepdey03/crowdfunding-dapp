@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { useAddress, useContract, useMetamask, useContractWrite } from "@thirdweb-dev/react";
+import { createContext, useState } from "react";
+import { useAddress, useContract, useMetamask, useContractWrite, useNetworkMismatch, useNetwork, ChainId, Web3Button } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 
 // how to create a context
@@ -12,6 +12,7 @@ const ContractcontextProvider = ({ children }) => {
 
     const address = useAddress()
     const connect = useMetamask()
+    const [loading, setLoading] = useState(false)
 
     const publishCampaign = async (form) => {
         try {
@@ -31,7 +32,7 @@ const ContractcontextProvider = ({ children }) => {
 
     const getCampaign = async () => {
         try {
-            const data = await contract.call('getCampaign')
+            const data = await contract.call('getCampaigns')
 
             const fetchedCampaign = data.map((campaign, i) => (
                 {
@@ -53,7 +54,7 @@ const ContractcontextProvider = ({ children }) => {
     }
 
     const getUserCampaigns = async () => {
-        const allCampaign = await contract.call('getCampaign')
+        const allCampaign = await contract.call('getCampaigns')
         const userCampaigns = allCampaign.filter(campaign => campaign.owner === address)
         return userCampaigns
     }
@@ -69,7 +70,7 @@ const ContractcontextProvider = ({ children }) => {
 
         const parsedDonation = []
 
-        for(let i= 0; i<data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             parsedDonation.push({
                 donators: data[0][i].donators,
                 donations: ethers.utils.formatEther(data[1][i].donations.toString())
@@ -81,7 +82,7 @@ const ContractcontextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonations, donate, getUserCampaigns, getCampaign }}>
+        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonations, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
             {children}
         </Context.Provider>
     )
