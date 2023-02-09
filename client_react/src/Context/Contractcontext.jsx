@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useAddress, useContract, useMetamask, useContractWrite, useNetworkMismatch, useNetwork, ChainId, Web3Button } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 
@@ -80,6 +80,10 @@ const ContractcontextProvider = ({ children }) => {
         return parsedDonations
 
     }
+
+    window.ethereum.on('accountsChanged', function (accounts) {
+        window.location.reload();
+    })
 
     return (
         <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonators, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
