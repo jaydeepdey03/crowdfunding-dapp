@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import CountBox from "../components/Countbox";
-import CustomButton from "../Components/CustomButton";
-import Loader from "../Components/Loader";
+import CustomButton from "../components/CustomButton";
+import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import useGlobalState from "../Hooks/useGlobalState";
 import { calculateBarPercentage, daysLeft } from "../utils"
