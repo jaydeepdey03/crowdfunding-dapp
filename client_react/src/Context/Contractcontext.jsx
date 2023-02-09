@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { useAddress, useContract, useMetamask, useContractWrite, useNetworkMismatch, useNetwork, ChainId, Web3Button } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
+import { useNavigate } from "react-router-dom";
 
 // how to create a context
 
@@ -9,7 +10,7 @@ export const Context = createContext();
 const ContractcontextProvider = ({ children }) => {
     const { contract } = useContract("0x34f094660AA1b00aDfb1658a7B871C42291B0FA1");
     const { mutateAsync: createCampaign, isLoading } = useContractWrite(contract, "createCampaign")
-
+    const navigate = useNavigate()
     const address = useAddress()
     const connect = useMetamask()
     const [loading, setLoading] = useState(false)
@@ -84,7 +85,8 @@ const ContractcontextProvider = ({ children }) => {
     useEffect(()=> {
         // account change reload
         window.ethereum.on('accountsChanged', function (accounts) {
-            window.location.reload()
+            navigate('/')
+
         }
         )
     }, [address])
