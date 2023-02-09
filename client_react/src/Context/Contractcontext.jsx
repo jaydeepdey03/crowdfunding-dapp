@@ -81,9 +81,13 @@ const ContractcontextProvider = ({ children }) => {
 
     }
 
-    window.ethereum.on('accountsChanged', function (accounts) {
-        window.location.reload();
-    })
+    useEffect(()=> {
+        // account change reload
+        window.ethereum.on('accountsChanged', function (accounts) {
+            window.location.reload()
+        }
+        )
+    }, [address])
 
     return (
         <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonators, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
