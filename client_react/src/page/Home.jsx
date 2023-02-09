@@ -25,12 +25,11 @@ const Home = () => {
     useEffect(() => {
         if (contract) fetchCampaign()
     }, [address, contract])
-
-    console.log(isMismatched)
+    
     return (
         <>
             {address === undefined ? (
-                <div className="flex linear-gradient justify-center items-center h-screen overflow-hidden">
+                <div className="flex linear-gradient h-screen justify-center items-center overflow-hidden">
                     <CustomButton
                         btnType="button"
                         title={'Connect'}
@@ -50,7 +49,7 @@ const Home = () => {
                     </div>
                 ) : (
                 <>
-                    <div className="linear-gradient">
+                    <div className="linear-gradient h-screen">
                         <Navbar />
                         <DisplayCampaign campaign={campaign} loading={loading} />
                     </div>

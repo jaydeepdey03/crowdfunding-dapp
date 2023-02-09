@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom"
-import CampaignCard from "./CampaignCard"
+import CampaignCard from "../page/CampaignCard"
 
 const DisplayCampaign = ({ campaign, loading }) => {
     const navigate = useNavigate()
     const handleNavigate = (campaign) => {
-
-        // router.push({
-        //     pathname: `/campaign-details/${campaign.title}`,
-        //     query: {campaign},
-        //     `/campaign-details/${campaign.title}`,
-        // })
+        navigate(`/campaign/${campaign.title}`, { state: campaign })
     }
+
     return (
         <div>
             <h1 className="font-epilogue font-semibold text-[18px] text-white text-center">All Campaign({campaign.length})</h1>

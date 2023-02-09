@@ -64,25 +64,25 @@ const ContractcontextProvider = ({ children }) => {
         return data;
     }
 
-    const getDonations = async (id) => {
-        const data = await contract.call('getDonators', id)
-        console.log(data)
+    const getDonators = async (id) => {
+        const donations = await contract.call('getDonators', id);
+        const numberOfDonations = donations[0].length;
 
-        const parsedDonation = []
+        const parsedDonations = [];
 
-        for (let i = 0; i < data.length; i++) {
-            parsedDonation.push({
-                donators: data[0][i].donators,
-                donations: ethers.utils.formatEther(data[1][i].donations.toString())
+        for (let i = 0; i < numberOfDonations; i++) {
+            parsedDonations.push({
+                donator: donations[0][i],
+                donation: ethers.utils.formatEther(donations[1][i].toString())
             })
         }
 
-        return parsedDonation
+        return parsedDonations
 
     }
 
     return (
-        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonations, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
+        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonators, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
             {children}
         </Context.Provider>
     )
