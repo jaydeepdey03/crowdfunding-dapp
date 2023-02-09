@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { ethers } from 'ethers';
 import 'sweetalert2/src/sweetalert2.scss'
 import Swal from 'sweetalert2'
-import FormField from "../Components/FormField";
+import FormField from "../components/FormField";
 import CustomButton from "../components/CustomButton";
-import Loader from "../Components/Loader";
+import Loader from "../components/Loader";
 import useGlobalState from "../Hooks/useGlobalState";
 import { checkIfImage } from "../utils";
 import './CreateCampaign.css'

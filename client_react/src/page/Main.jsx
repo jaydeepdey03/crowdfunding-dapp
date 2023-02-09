@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Navbar from "../Components/Navbar"
+import Navbar from "../components/Navbar"
 import useGlobalState from "../Hooks/useGlobalState"
-import DisplayCampaign from "../Components/DisplayCampaign"
+import DisplayCampaign from "../components/DisplayCampaign"
 // import { useRouter } from "next/router"}
 
 const Main = () => {
