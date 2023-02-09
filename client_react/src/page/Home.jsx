@@ -1,6 +1,6 @@
 import { useAddress } from "@thirdweb-dev/react"
 import { useEffect, useState } from "react"
-import CustomButton from "../Components/CustomButton"
+import CustomButton from "../components/CustomButton"
 import DisplayCampaign from "../components/DisplayCampaign"
 import Navbar from "../components/Navbar"
 import useGlobalState from "../Hooks/useGlobalState"
