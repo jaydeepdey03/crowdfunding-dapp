@@ -39,10 +39,10 @@ const Main = () => {
                 </div>
             ) : (
                 <>
-                    <div className="linear-gradient">
-                        <Navbar />
-                        <DisplayCampaign campaign={campaign} loading={loading} />
-                    </div>
+                <div className="linear-gradient">
+                    <Navbar />
+                    <DisplayCampaign campaign={campaign} loading={loading} />
+                </div>
                 </>
             )}
         </>

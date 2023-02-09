@@ -1,0 +1,15 @@
+.linear-gradient {
+    background: linear-gradient(119.51deg, #8EC5FC 21.82%, rgba(224, 195, 252, 0.92) 81.94%);
+    height: 100vh;
+}
+
+@media screen and (max-width: 640px) {
+    .linear-gradient {
+        background: linear-gradient(119.51deg, #8EC5FC 21.82%, rgba(224, 195, 252, 0.92) 81.94%);
+        height: 100%;
+    }
+}
+
+.linear-gradient-btn {
+    background: linear-gradient(103.09deg, #21A1FD -8.33%, rgba(183, 33, 255, 0.41) 113.95%);
+}

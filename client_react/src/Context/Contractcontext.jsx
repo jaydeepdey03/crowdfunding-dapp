@@ -16,7 +16,6 @@ const ContractcontextProvider = ({ children }) => {
 
     const publishCampaign = async (form) => {
         try {
-
             const data = await createCampaign([
                 address,
                 form.title,
