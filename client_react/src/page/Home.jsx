@@ -26,6 +26,7 @@ const Home = () => {
         if (contract) fetchCampaign()
     }, [address, contract])
     
+    console.log(address)
     return (
         <>
             {address === undefined ? (
@@ -49,9 +50,9 @@ const Home = () => {
                     </div>
                 ) : (
                 <>
-                    <div className="linear-gradient h-screen">
+                    <div className="linear-gradient h-full md:h-[200vh]">
                         <Navbar />
-                        <DisplayCampaign campaign={campaign} loading={loading} />
+                        <DisplayCampaign title={"All Campaign"} campaign={campaign} loading={loading} />
                     </div>
                 </>
             )}

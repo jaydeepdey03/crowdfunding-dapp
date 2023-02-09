@@ -53,7 +53,7 @@ const ContractcontextProvider = ({ children }) => {
     }
 
     const getUserCampaigns = async () => {
-        const allCampaign = await contract.call('getCampaigns')
+        const allCampaign = await getCampaign()
         const userCampaigns = allCampaign.filter(campaign => campaign.owner === address)
         return userCampaigns
     }

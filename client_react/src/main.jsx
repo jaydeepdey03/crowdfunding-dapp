@@ -7,13 +7,13 @@ import ContractcontextProvider from './Context/Contractcontext'
 import { ThirdwebProvider, ChainId } from '@thirdweb-dev/react'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
-    <BrowserRouter>
-      <ContractcontextProvider>
-        <React.StrictMode>
+  <React.StrictMode>
+    <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
+      <BrowserRouter>
+        <ContractcontextProvider>
           <App />
-        </React.StrictMode>,
-      </ContractcontextProvider>
-    </BrowserRouter>
-  </ThirdwebProvider>
+        </ContractcontextProvider>
+      </BrowserRouter>
+    </ThirdwebProvider>
+  </React.StrictMode>,
 )

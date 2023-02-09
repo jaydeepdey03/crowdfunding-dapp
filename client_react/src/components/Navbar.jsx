@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -7,9 +7,7 @@ const Navbar = () => {
 
     return (
         <div className='flex md:flex-row justify-between gap-6 p-6'>
-            <div>
-                <p className='text-white font-bold text-3xl'>Fundr.</p>
-            </div>
+            <Link to="/"><p className='text-white font-bold text-3xl'>Fundr.</p></Link>
             {/* <div className='font-epilogue md:relative hidden md:flex space-x-14 justify-center font-bold text-white items-center text-lg'>
                 <p className='link'>Home</p>
                 <p className='link'>About</p>
@@ -23,7 +21,7 @@ const Navbar = () => {
                         </svg>
                     </div>
                 </Link>
-                <Link href="/profile">
+                <Link to="/profile">
                     <div className={`w-[52px] h-[52px] rounded-full bg-[#2c2f32] sm:flex justify-center items-center cursor-pointer hidden`}>
                         <img src={`/assets/thirdweb.png`} alt="user" className="w-[60%] h-[60%] object-contain" />
                     </div>
