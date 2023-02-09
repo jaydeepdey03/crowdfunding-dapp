@@ -12,7 +12,7 @@ const DisplayCampaign = ({ campaign, loading }) => {
             <h1 className="font-epilogue font-semibold text-[18px] text-white text-center">All Campaign({campaign.length})</h1>
             <div className="p-10 sm:p-0 flex flex-wrap items-center justify-center mt-[20px] gap-[26px]">
                 {loading && (
-                    <img src={`/assets/loader.svg`} alt="loader" className="w-[100px] h-[100px] object-contain" />
+                    <img src={`assets/loader.svg`} alt="loader" className="w-[100px] h-[100px] object-contain" />
                 )}
 
                 {!loading && campaign.length === 0 && (
