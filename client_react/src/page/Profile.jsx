@@ -1,3 +1,4 @@
+import { useAddress } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import DisplayCampaign from "../components/DisplayCampaign";
 import Navbar from "../components/Navbar";
@@ -20,9 +21,16 @@ const Profile = () => {
     useEffect(() => {
         if (contract) fetchCampaigns();
     }, [address, contract]);
+
+    console.log(typeof(address1))
     return (
-        <div className="linear-gradient h-screen">
+        <div className="linear-gradient h-[200vh]">
             <Navbar />
+            <div className="mb-7">
+                <h1 className="text-white text-center text-xl font-bold">Your Wallet Address</h1>
+                <p className="text-white text-center text-xl font-semibold sm:block hidden">{address}</p>
+                <p className="text-white text-center text-xl font-semibold sm:hidden block">{address.slice(0,20) + '...' + address.slice(-4)}</p>
+            </div>
             <DisplayCampaign title={"Your Campaign"} campaign={campaigns} loading={isLoading} />
         </div>
     )

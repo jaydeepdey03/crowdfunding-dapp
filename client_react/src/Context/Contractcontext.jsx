@@ -92,7 +92,7 @@ const ContractcontextProvider = ({ children }) => {
     // }, [address])
 
     return (
-        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonators, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading }}>
+        <Context.Provider value={{ contract, createCampaign: publishCampaign, connect, getDonators, donate, getUserCampaigns, getCampaign, useNetworkMismatch, useNetwork, ChainId, useAddress, Web3Button, loading, address }}>
             {children}
         </Context.Provider>
     )
