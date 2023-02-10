@@ -24,7 +24,7 @@ const Profile = () => {
 
     console.log(typeof(address1))
     return (
-        <div className="linear-gradient h-[200vh]">
+        <div className="linear-gradient h-full md:h-[200vh]">
             <Navbar />
             <div className="mb-7">
                 <h1 className="text-white text-center text-xl font-bold">Your Wallet Address</h1>
