@@ -21,8 +21,6 @@ const Profile = () => {
     useEffect(() => {
         if (contract) fetchCampaigns();
     }, [address, contract]);
-
-    console.log(typeof(address1))
     return (
         <div className="linear-gradient h-full md:h-[200vh]">
             <Navbar />
