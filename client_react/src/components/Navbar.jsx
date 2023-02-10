@@ -32,12 +32,11 @@ const Navbar = () => {
 
             {/* Responsive hamburger menu */}
             <div className='sm:hidden'>
-                <svg width="50" height="50" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className='text-white'>
-                    <path d="M21 10H7"></path>
-                    <path d="M21 6H3"></path>
-                    <path d="M21 14H3"></path>
-                    <path d="M21 18H7"></path>
-                </svg>
+                <Link to="/profile">
+                    <div className={`w-[52px] h-[52px] rounded-full bg-[#2c2f32] sm:flex justify-center items-center cursor-pointer hidden`}>
+                        <img src={`/assets/thirdweb.png`} alt="user" className="w-[60%] h-[60%] object-contain" />
+                    </div>
+                </Link>
             </div>
 
         </div>
