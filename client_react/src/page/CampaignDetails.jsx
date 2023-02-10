@@ -86,7 +86,7 @@ const CampaignDetails = () => {
                         <div>
                             <h4 className="font-epilogue font-semibold text-[18px] uppercase">Story</h4>
 
-                            <div className="">
+                            <div className="max-w-lg">
                                 <p className="font-epilogue font-normal text-[16px] leading-[26px] text-justify">{state.description}</p>
                             </div>
                         </div>
