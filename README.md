@@ -34,14 +34,13 @@ To contribute to a crowdfunding campaign, a user has to enter the address of the
 
 1. Clone the repository
 2. Run `npm install`
-3. Run `npm start`
-4. Open the application on http://localhost:3000
+3. Run `npm run dev`
+4. Open the application on http://localhost:5173/
 
-## How to run the tests
 
-1. Clone the repository
-2. Run `npm install`
-3. Run `npm test`
+## Hosted on Vercel
+
+[Link to the Site](https://crowdfunding-dapp-sigma.vercel.app/)
 
 ## Resources
 
