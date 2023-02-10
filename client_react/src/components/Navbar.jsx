@@ -14,7 +14,7 @@ const Navbar = () => {
                 <p className='link'>Contact Us</p>
             </div> */}
             <div className="hidden sm:flex space-x-5">
-                <Link href="/create">
+                <Link to="/create">
                     <div className={`w-[52px] h-[52px] rounded-full plus-linear-gradient sm:flex justify-center items-center cursor-pointer hidden`}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white font-bold">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
