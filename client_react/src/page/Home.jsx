@@ -25,8 +25,6 @@ const Home = () => {
     useEffect(() => {
         if (contract) fetchCampaign()
     }, [address, contract])
-    
-    console.log(address)
     return (
         <>
             {address === undefined ? (

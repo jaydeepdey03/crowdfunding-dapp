@@ -97,8 +97,8 @@ const CampaignDetails = () => {
                             <div className="flex flex-col gap-4 w-full">
                                 {donators.length > 0 ? donators.map((item, index) => (
                                     <div key={`${item.donator}-${index}`} className="flex space-x-4">
-                                        <p className="font-epilogue font-normal text-[16px] leading-[26px] break-ll">{index + 1}. <span className="hidden font-semibold">{item.donator.slice(0, 5) + '...' + item.donator.slice(-3)}</span>
-                                            <span className="hidden lg:inline-block font-semibold">{item.donator}</span>
+                                        <p className="font-epilogue font-normal text-[16px] leading-[26px] truncate">{index + 1}. 
+                                            <span className="lg:inline-block font-semibold">{item.donator}</span>
                                         </p>
                                         <p className="font-epilogue font-normal text-[16px] leading-[26px] break-ll">{item.donation}</p>
                                     </div>
