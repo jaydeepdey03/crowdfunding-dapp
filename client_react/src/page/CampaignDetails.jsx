@@ -30,6 +30,7 @@ const CampaignDetails = () => {
         if (contract) fetchDonators();
     }, [contract, address])
 
+
     const handleDonate = async () => {
         try {
             setIsLoading(true);
@@ -97,7 +98,7 @@ const CampaignDetails = () => {
                             <div className="flex flex-col gap-4 w-full">
                                 {donators.length > 0 ? donators.map((item, index) => (
                                     <div key={`${item.donator}-${index}`} className="flex space-x-4">
-                                        <p className="font-epilogue font-normal text-[16px] leading-[26px] truncate">{index + 1}. 
+                                        <p className="font-epilogue font-normal text-[16px] leading-[26px] truncate">{index + 1}.
                                             <span className="lg:inline-block font-semibold">{item.donator}</span>
                                         </p>
                                         <p className="font-epilogue font-normal text-[16px] leading-[26px] break-ll">{item.donation}</p>
@@ -128,12 +129,13 @@ const CampaignDetails = () => {
                                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-white">Support the project for no reward, just because it speaks to you.</p>
                             </div>
 
-                            <CustomButton
+                            {calculateBarPercentage(state.target, state.amountCollected) == "100" ? <button className="font-epilogue font-semibold text-[15px] leading-[26px] text-white min-h-[40px] px-3 rounded-[10px] bg-slate-400 w-full">Event Completed
+                            </button> : <CustomButton
                                 btnType="button"
                                 title="Fund Campaign"
                                 styles="w-full bg-[#8c6dfd]"
                                 handleClick={handleDonate}
-                            />
+                            />}
                         </div>
                     </div>
                 </div>
