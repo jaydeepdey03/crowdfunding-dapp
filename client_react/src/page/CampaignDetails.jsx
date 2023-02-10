@@ -47,7 +47,7 @@ const CampaignDetails = () => {
             setIsLoading(false)
         }
     }
-
+    console.log(typeof(calculateBarPercentage(state.target, state.amountCollected)))
     return (
         <>
             <div className="h-[200%] overflow-x-hidden linear-gradient">
@@ -129,7 +129,7 @@ const CampaignDetails = () => {
                                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-white">Support the project for no reward, just because it speaks to you.</p>
                             </div>
 
-                            {calculateBarPercentage(state.target, state.amountCollected) == "100" ? <button className="font-epilogue font-semibold text-[15px] leading-[26px] text-white min-h-[40px] px-3 rounded-[10px] bg-slate-400 w-full">Event Completed
+                            {calculateBarPercentage(state.target, state.amountCollected) >= "100" ? <button className="font-epilogue font-semibold text-[15px] leading-[26px] text-white min-h-[40px] px-3 rounded-[10px] bg-slate-400 w-full">Event Completed
                             </button> : <CustomButton
                                 btnType="button"
                                 title="Fund Campaign"
