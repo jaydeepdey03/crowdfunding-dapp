@@ -47,7 +47,7 @@ const CampaignDetails = () => {
             setIsLoading(false)
         }
     }
-    console.log(typeof(calculateBarPercentage(state.target, state.amountCollected)))
+    console.log(typeof (calculateBarPercentage(state.target, state.amountCollected)))
     return (
         <>
             <div className="h-[200%] overflow-x-hidden linear-gradient">
@@ -138,6 +138,15 @@ const CampaignDetails = () => {
                             />}
                         </div>
                     </div>
+
+                </div>
+                <div className="flex justify-center items-center w-[100vw]">
+                    <CustomButton
+                        btnType="button"
+                        title="Go back"
+                        styles="w-[10rem] mb-10 bg-[#8c6dfd]"
+                        handleClick={() => navigate(-1)}
+                    />
                 </div>
             </div>
         </>
