@@ -61,7 +61,7 @@ const CreateCampaign = () => {
                 <div className="flex flex-col place-items-center h-full w-full p-10">
                     <form onSubmit={handleSubmit} className="bg-white shadow-md rounded p-7 flex flex-col space-y-6 justify-center">
                         {/* create a centered button with the text */}
-                        <h1 className="text-2xl text-white inline-block m-auto text-center px-5 py-3 rounded-xl w-[40%] font-bold font-epilogue campaign-bg">
+                        <h1 className="text-lg sm:text-2xl text-white inline-block m-auto text-center px-5 py-3 rounded-xl w-[80%] sm:w-[40%] font-bold font-epilogue campaign-bg">
                             Create Campaign
                         </h1>
                         <FormField
@@ -116,9 +116,9 @@ const CreateCampaign = () => {
                             />
 
                         </div>
-                        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfdbb] h-[120px] rounded-[10px] mt-5">
+                        <div className="sm:w-full flex justify-start items-center p-4 bg-[#8c6dfdbb] h-[120px] rounded-[10px] mt-5">
                             <img src={`assets/money.svg`} alt="money" className="w-[40px] h-[40px] object-contain" />
-                            <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">You will get 100% of the raised amount</h4>
+                            <h4 className="font-epilogue font-bold text-sm sm:text-[25px] text-white ml-[20px]">You will get 100% of the raised amount</h4>
                         </div>
                     </form>
                 </div>
