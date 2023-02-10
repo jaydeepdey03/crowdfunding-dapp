@@ -52,7 +52,7 @@ const CampaignDetails = () => {
         <>
             <div className="h-[200%] overflow-x-hidden linear-gradient">
                 <Navbar />
-                {isLoading && <Loader />}
+            {isLoading && <Loader />}
 
                 <div className="w-full flex lg:flex-row flex-col gap-[30px] pr-10 pl-10">
                     <div className="flex-1 flex-col">
