@@ -55,8 +55,8 @@ const CampaignDetails = () => {
 
                 <div className="w-full flex lg:flex-row flex-col gap-[30px] pr-10 pl-10">
                     <div className="flex-1 flex-col">
-                        <img src={state.image} alt="campaign" className="object-contain rounded-xl" />
-                        <div className="relative h-[5px] bg-white rounded mt-2">
+                        <img src={state.image} alt="campaign" className="object-contain rounded-xl w-full" />
+                        <div className="relative h-[5px] w-full bg-white rounded mt-2">
                             <div className="absolute h-full bg-[#4acd8d]" style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%' }}>
                             </div>
                         </div>
