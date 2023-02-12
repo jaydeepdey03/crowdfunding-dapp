@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import CampaignCard from "../page/CampaignCard"
+import { daysLeft } from "../utils"
 
-const DisplayCampaign = ({ title, campaign, loading }) => {
+const DisplayCampaign = ({ title, campaign, loading, deadline }) => {
     const navigate = useNavigate()
     const handleNavigate = (campaign) => {
         navigate(`/campaign/${campaign.title}`, { state: campaign })
     }
+
+    campaign.forEach(item=>console.log(daysLeft(item.deadline)))
 
     return (
         <div>
@@ -21,11 +24,11 @@ const DisplayCampaign = ({ title, campaign, loading }) => {
                     </p>
                 )}
 
-                {!loading && campaign.length > 0 && campaign.map((campaign) => <CampaignCard
+                {!loading && campaign.length > 0 && campaign.map((campaign) => daysLeft(campaign.deadline) > 0 &&(<CampaignCard
                     key={campaign.id}
                     {...campaign}
                     handleClick={() => handleNavigate(campaign)}
-                />)}
+                />))}
             </div>
         </div>
     )

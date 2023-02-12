@@ -1,4 +1,4 @@
-import { useAddress } from "@thirdweb-dev/react"
+import { ConnectWallet, useAddress } from "@thirdweb-dev/react"
 import { useEffect, useState } from "react"
 import CustomButton from "../components/CustomButton"
 import DisplayCampaign from "../components/DisplayCampaign"
@@ -22,6 +22,8 @@ const Home = () => {
         setLoading(false)
     }
 
+    console.log(campaign)
+
     useEffect(() => {
         if (contract) fetchCampaign()
     }, [address, contract])
@@ -32,7 +34,7 @@ const Home = () => {
                     <CustomButton
                         btnType="button"
                         title={'Connect'}
-                        styles={'bg-[#8c6dfd] h-20 w-52 text-2xl'}
+                        styles={'bg-[#8c6dfd] h-16 w-52 text-2xl'}
                         handleClick={connect}
                     />
                 </div>) : isMismatched ? (
