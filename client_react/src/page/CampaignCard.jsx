@@ -1,8 +1,9 @@
-import { daysLeft } from "../utils";
+import { calculateBarPercentage, daysLeft } from "../utils";
 
 const CampaignCard = ({ owner, title, description, target, deadline, amountCollected, image, handleClick }) => {
 
     const remainingDays = daysLeft(deadline);
+    const per = calculateBarPercentage(target, amountCollected)
 
     return (
         <div className="sm:w-[288px] w-full rounded-[15px] bg-[#37377b] cursor-pointer" onClick={handleClick}>
@@ -20,8 +21,8 @@ const CampaignCard = ({ owner, title, description, target, deadline, amountColle
                         <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-white sm:max-w-[120px] truncate">Raised of {target}</p>
                     </div>
                     <div className="flex flex-col">
-                        <h4 className="font-epilogue font-semibold text-[14px] text-white leading-[22px]">{remainingDays}</h4>
-                        <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-white sm:max-w-[120px] truncate">Days Left</p>
+                        <h4 className="font-epilogue font-semibold text-[14px] text-white leading-[22px]">{per >= 100 ? "Completed" :remainingDays < 0 || remainingDays == "-0" ? "Expired": remainingDays}</h4>
+                        <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-white sm:max-w-[120px] truncate">{per >= 100 || remainingDays < 0 || remainingDays == "-0" ? "": "Days Left"}</p>
                     </div>
                 </div>
 

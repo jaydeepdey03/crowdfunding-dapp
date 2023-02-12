@@ -24,7 +24,7 @@ const DisplayCampaign = ({ title, campaign, loading, deadline }) => {
                     </p>
                 )}
 
-                {!loading && campaign.length > 0 && campaign.map((campaign) => daysLeft(campaign.deadline) > 0 &&(<CampaignCard
+                {!loading && campaign.length > 0 && campaign.map((campaign) => (<CampaignCard
                     key={campaign.id}
                     {...campaign}
                     handleClick={() => handleNavigate(campaign)}
