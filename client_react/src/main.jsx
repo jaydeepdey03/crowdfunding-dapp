@@ -4,7 +4,16 @@ import App from "./App";
 import {BrowserRouter} from "react-router-dom";
 import "./index.css";
 import ContractcontextProvider from "./Context/Contractcontext";
-import {ThirdwebProvider, ChainId} from "@thirdweb-dev/react";
+import {
+  ConnectWallet,
+  ThirdwebProvider,
+  coinbaseWallet,
+  metamaskWallet,
+  phantomWallet,
+  rainbowWallet,
+  safeWallet,
+  walletConnect,
+} from "@thirdweb-dev/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
