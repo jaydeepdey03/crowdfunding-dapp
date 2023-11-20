@@ -17,6 +17,6 @@ module.exports = {
     matic: {
       url: `https://polygon-mumbai.g.alchemy.com/v2/${process.env.API_KEY}`,
       accounts: [process.env.PRIVATE_KEY]
-    }
+    },
   }
 };
