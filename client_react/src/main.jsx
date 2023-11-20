@@ -18,7 +18,7 @@ import {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThirdwebProvider
-      clientId={process.env.NEXT_PUBLIC_CLIENT_ID}
+      clientId={import.meta.env.VITE_SECRET_KEY}
       activeChain="mumbai"
       supportedWallets={[
         metamaskWallet({recommended: true}),
