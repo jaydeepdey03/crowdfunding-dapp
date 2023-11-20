@@ -24,6 +24,11 @@ const ContractcontextProvider = ({children}) => {
   );
   const {mutateAsync: createCampaign, isLoading: publishLoading} =
     useContractWrite(contract, "createCampaign");
+  const {mutateAsync: donateToCampaign, isLoading} = useContractWrite(
+    contract,
+    "donateToCampaign"
+  );
+
   const navigate = useNavigate();
   const address = useAddress();
   const connect = useMetamask();
@@ -82,15 +87,21 @@ const ContractcontextProvider = ({children}) => {
   };
 
   const donate = async (id, amount) => {
-    const data = await contract.call("donateToCampaign", id, {
-      value: ethers.utils.parseEther(amount),
-    });
-
-    return data;
+    try {
+      await donateToCampaign({
+        args: [id],
+        overrides: {
+          value: ethers.utils.parseUnits(amount, 18),
+        },
+      });
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const getDonators = async (id) => {
-    const donations = await contract.call("getDonators", id);
+    const donations = await contract.call("getDonators", [id]);
     const numberOfDonations = donations[0].length;
 
     const parsedDonations = [];
